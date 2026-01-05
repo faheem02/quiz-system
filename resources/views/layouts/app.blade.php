@@ -41,23 +41,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz System</title>
+
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href={{ asset('theme/vendor/fontawesome-free/css/all.min.css') }} rel="stylesheet">
-    <link href={{ asset('theme/css/sb-admin-2.min.css') }} rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="{{ asset('theme/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
+    <!-- SB Admin 2 -->
+    <link href="{{ asset('theme/css/sb-admin-2.min.css') }}" rel="stylesheet">
+
+    <style>
+        body {
+            padding-top: 70px; /* space for fixed navbar */
+        }
+    </style>
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<!-- Navbar (Fixed) -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top shadow-sm">
     <div class="container">
         <a class="navbar-brand" href="{{ route('home') }}">Quiz System</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-        <div class="collapse navbar-collapse">
+        <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 @auth
                     <li class="nav-item">
-                        <!-- Logout form goes here -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
                             <button type="submit" class="btn btn-outline-light btn-sm">Logout</button>
@@ -69,16 +83,15 @@
     </div>
 </nav>
 
+<!-- Page Content -->
 <div class="container py-4">
     @yield('content')
 </div>
 
-
-<script src={{ asset('theme/vendor/jquery/jquery.min.js') }}></script>
-<script src={{ asset('theme/vendor/bootstrap/js/bootstrap.bundle.min.js') }}></script>
-<script src={{ asset('theme/js/sb-admin-2.min.js') }}></script>
-
+<!-- Scripts -->
+<script src="{{ asset('theme/vendor/jquery/jquery.min.js') }}"></script>
+<script src="{{ asset('theme/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('theme/js/sb-admin-2.min.js') }}"></script>
 
 </body>
 </html>
-
