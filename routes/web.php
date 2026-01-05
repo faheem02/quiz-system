@@ -12,35 +12,32 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Frontend\CourseController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\ContactController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
 */
 
-// Home
-Route::get('/', function () {
-    return view('frontend.home');
-})->name('home');
+// ================= FRONTEND =================
+
+// Home page
+Route::get('/', [HomeController::class, 'index'])->name('home');
+
+// About page
+Route::view('/about', 'frontend.about')->name('about');
 Route::get('/about', function () {
     return view('frontend.about');
-});
-
-Route::get('/courses', function () {
-    return view('frontend.courses');
-});
-Route::get('/courses', [CourseController::class, 'index']);
-Route::get('/courses/{course}', [CourseController::class, 'show'])
-     ->name('courses.show');
+})->name('about');
 
 
-Route::get('/contact', function () {
-    return view('frontend.contact');
-})->name('contact');
+// Courses pages
+Route::get('/courses', [CourseController::class, 'index'])->name('courses.index');
+Route::get('/courses/{course}', [CourseController::class, 'show'])->name('courses.show');
 
-Route::post('/contact', [ContactController::class, 'submit'])
-     ->name('contact.submit');
-Route::get('/', [HomeController::class, 'index'])->name('home');
+// Contact page
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
 
 // ================= AUTH =================
 Route::get('/login', [AuthenticatedSessionController::class, 'showLoginForm'])->name('login');
@@ -49,26 +46,27 @@ Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name
 
 Route::get('/register', [RegisteredUserController::class, 'create'])->name('register');
 Route::post('/register', [RegisteredUserController::class, 'store']);
-Route::get('/courses', [CourseController::class, 'index']);
 
 // ================= MAIN DASHBOARD =================
 Route::middleware('auth')->get('/dashboard', function () {
-    if (auth()->user()->role === 'admin') {
-        return redirect()->route('admin.dashboard');
-    }
-    return redirect()->route('user.dashboard');
+    return auth()->user()->role === 'admin'
+        ? redirect()->route('admin.dashboard')
+        : redirect()->route('user.dashboard');
 })->name('dashboard');
 
 // ================= ADMIN =================
 Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
 
-    Route::get('/dashboard', [DashboardController::class, 'index'])
-        ->name('admin.dashboard');
+     Route::get('/messages', [\App\Http\Controllers\Admin\ContactMessageController::class, 'index'])
+         ->name('admin.messages');
 
+    // Quizzes
     Route::get('/quizzes', [QuizController::class, 'index'])->name('admin.quizzes.index');
     Route::get('/quizzes/create', [QuizController::class, 'create'])->name('admin.quizzes.create');
     Route::post('/quizzes', [QuizController::class, 'store'])->name('admin.quizzes.store');
 
+    // Questions
     Route::get('/quizzes/{quiz}/questions', [QuestionController::class, 'index'])->name('admin.questions.index');
     Route::get('/quizzes/{quiz}/questions/create', [QuestionController::class, 'create'])->name('admin.questions.create');
     Route::post('/quizzes/{quiz}/questions', [QuestionController::class, 'store'])->name('admin.questions.store');
@@ -76,9 +74,7 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
 
 // ================= USER =================
 Route::middleware('auth')->prefix('user')->group(function () {
-
-    Route::get('/dashboard', [UserDashboardController::class, 'index'])
-        ->name('user.dashboard');
+    Route::get('/dashboard', [UserDashboardController::class, 'index'])->name('user.dashboard');
 
     Route::get('/quizzes', [QuizAttemptController::class, 'index'])->name('user.quizzes');
     Route::get('/quizzes/history', [QuizAttemptController::class, 'history'])->name('user.quiz.history');
@@ -92,5 +88,16 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+// routes/web.php
+Route::middleware(['auth', 'admin'])->get('/admin/messages', function() {
+    $messages = \App\Models\ContactMessage::all();
+    return view('admin.messages.index', compact('messages'));
+})->name('admin.messages');
+
+Route::get('/messages', function() {
+    $messages = \App\Models\ContactMessage::latest()->get();
+    return view('admin.messages.index', compact('messages'));
+})->name('admin.messages');
+
 
 require __DIR__ . '/auth.php';

@@ -20,6 +20,30 @@
 
     <!-- Main CSS -->
     <link href="{{ asset('frontend/css/style.css') }}" rel="stylesheet">
+
+<style>
+/* Navbar button hover effects */
+.btn-navbar {
+    transition: all 0.3s ease;
+    border-radius: 50px; /* rounded pill shape */
+    padding: 8px 20px;
+}
+
+.btn-navbar:hover {
+    transform: translateY(-3px); /* slight lift */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    opacity: 0.9;
+}
+
+/* Optional: different hover for outline button */
+.btn-outline-primary.btn-navbar:hover {
+    background-color: #007bff; /* fill color */
+    color: #fff; /* text color */
+    border-color: #007bff;
+}
+</style>
+
+
 </head>
 
 <body>

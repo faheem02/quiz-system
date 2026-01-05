@@ -1,5 +1,6 @@
-<div class="container-fluid bg-dark">
-    <div class="row py-2 px-lg-5">
+<!-- Topbar Start -->
+<div class="container-fluid bg-dark fixed-top" style="z-index: 1030; height: 40px;">
+    <div class="row py-2 px-lg-5 h-100">
         <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
             <div class="d-inline-flex align-items-center text-white">
                 <small><i class="fa fa-phone-alt mr-2"></i>+012 345 6789</small>
@@ -18,3 +19,4 @@
         </div>
     </div>
 </div>
+<!-- Topbar End -->
