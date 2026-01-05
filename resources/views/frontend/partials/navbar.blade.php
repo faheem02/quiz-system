@@ -57,11 +57,12 @@
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
                     <div class="dropdown-menu m-0">
-                        <a href="#" class="dropdown-item">Course Detail</a>
-                        <a href="#" class="dropdown-item">Our Features</a>
-                        <a href="#" class="dropdown-item">Instructors</a>
-                        <a href="#" class="dropdown-item">Testimonial</a>
-                    </div>
+    <a href="{{ route('pages.detail') }}" class="dropdown-item">Course Detail</a>
+    <a href="{{ route('pages.feature') }}" class="dropdown-item">Our Features</a>
+    <a href="{{ route('pages.team') }}" class="dropdown-item">Instructors</a>
+    <a href="{{ route('pages.testimonial') }}" class="dropdown-item">Testimonial</a>
+</div>
+
                 </div>
                 <a href="{{ route('contact') }}" class="nav-item nav-link">Contact</a>
             </div>
