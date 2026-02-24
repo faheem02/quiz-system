@@ -12,6 +12,9 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Frontend\CourseController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\ContactController;
+use App\Http\Controllers\PasswordController;
+use App\Http\Controllers\PayPalController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -28,9 +31,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::view('/about', 'frontend.about')->name('about');
 
 // Pages dropdown
-Route::get('/course-detail', function () {
-    return view('frontend.pages.detail');
-})->name('pages.detail');
+Route::get('/course-detail', [CourseController::class, 'show'])->name('pages.detail');
 
 Route::get('/instructors', function () {
     return view('frontend.pages.team');
@@ -101,11 +102,22 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
 Route::middleware('auth')->prefix('user')->group(function () {
     Route::get('/dashboard', [UserDashboardController::class, 'index'])->name('user.dashboard');
 
+
+    // Quiz (add your quiz routes here)
+Route::get('/quiz/{course_id}/start', function($course_id) {
+    return "Quiz started for course: " . $course_id;
+})->name('quiz.start');
+
     // Quizzes
     Route::get('/quizzes', [QuizAttemptController::class, 'index'])->name('user.quizzes');
     Route::get('/quizzes/history', [QuizAttemptController::class, 'history'])->name('user.quiz.history');
     Route::get('/quizzes/{quiz}', [QuizAttemptController::class, 'show'])->name('user.quiz.attempt');
     Route::post('/quizzes/{quiz}/submit', [QuizAttemptController::class, 'submit'])->name('user.quiz.submit');
+});
+
+Route::middleware('auth')->group(function () {
+    Route::get('/change-password', [PasswordController::class, 'edit'])->name('password.edit');
+    Route::post('/change-password', [PasswordController::class, 'update'])->name('password.update');
 });
 
 
@@ -116,5 +128,23 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+// ================= Paypal =================
+
+Route::get('/payment', function () {
+    return view('payment');
+})->name('payment');
+
+Route::post('/paypal/pay', [PayPalController::class, 'pay'])->name('paypal.pay');
+Route::get('/paypal/success', [PayPalController::class, 'success'])->name('paypal.success');
+Route::get('/paypal/cancel', [PayPalController::class, 'cancel'])->name('paypal.cancel');
+
+
+Route::get('/order', function () {
+    return view('order');
+});
+
+Route::get('/payment', function () {
+    return view('payment');
+})->name('payment');
 
 require __DIR__ . '/auth.php';

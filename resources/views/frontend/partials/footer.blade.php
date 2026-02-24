@@ -1,22 +1,22 @@
-<!-- Footer Start -->
 <div class="container-fluid position-relative overlay-top bg-dark text-white-50 py-5" style="margin-top: 90px;">
     <div class="container mt-5 pt-5">
         <div class="row">
             <div class="col-md-6 mb-5">
                 <a href="{{ url('/') }}" class="navbar-brand">
                     <h1 class="mt-n2 text-uppercase text-white">
-                        <i class="fa fa-book-reader mr-3"></i>Edukate
+                        <i class="fa fa-taxi mr-3"></i>Taxi Prep
                     </h1>
                 </a>
                 <p class="m-0">
-                    Accusam nonumy clita sed rebum kasd eirmod elitr.
-                    Ipsum ea lorem at et diam est, tempor rebum ipsum sit ea tempor stet et consetetur dolores.
-                    Justo stet diam ipsum lorem vero clita diam
+                    UK's dedicated platform for Medway and Thanet council taxi licensing preparation. 
+                    We help new drivers pass their Knowledge and Highway Code tests with confidence 
+                    through realistic mock exams and updated 2026 safeguarding protocols.
                 </p>
             </div>
 
             <div class="col-md-6 mb-5">
                 <h3 class="text-white mb-4">Newsletter</h3>
+                <p class="mb-3">Get the latest updates on council policy changes.</p>
                 <div class="w-100">
                     <div class="input-group">
                         <input type="email"
@@ -24,7 +24,7 @@
                                style="padding: 30px;"
                                placeholder="Your Email Address">
                         <div class="input-group-append">
-                            <button class="btn btn-primary px-4">Sign Up</button>
+                            <button class="btn btn-primary px-4">Subscribe</button>
                         </div>
                     </div>
                 </div>
@@ -34,35 +34,35 @@
         <div class="row">
             <div class="col-md-4 mb-5">
                 <h3 class="text-white mb-4">Get In Touch</h3>
-                <p><i class="fa fa-map-marker-alt mr-2"></i>123 Street, New York, USA</p>
-                <p><i class="fa fa-phone-alt mr-2"></i>+012 345 67890</p>
-                <p><i class="fa fa-envelope mr-2"></i>info@example.com</p>
+                <p><i class="fa fa-map-marker-alt mr-2"></i>Kent, United Kingdom</p>
+                <p><i class="fa fa-phone-alt mr-2"></i>+44 123 456 7890</p>
+                <p><i class="fa fa-envelope mr-2"></i>support@taxitestprep.uk</p>
 
                 <div class="d-flex justify-content-start mt-4">
-                    <a class="text-white mr-4" href="#"><i class="fab fa-2x fa-twitter"></i></a>
                     <a class="text-white mr-4" href="#"><i class="fab fa-2x fa-facebook-f"></i></a>
+                    <a class="text-white mr-4" href="#"><i class="fab fa-2x fa-twitter"></i></a>
                     <a class="text-white mr-4" href="#"><i class="fab fa-2x fa-linkedin-in"></i></a>
-                    <a class="text-white" href="#"><i class="fab fa-2x fa-instagram"></i></a>
+                    <a class="text-white" href="#"><i class="fab fa-2x fa-whatsapp"></i></a>
                 </div>
             </div>
 
             <div class="col-md-4 mb-5">
-                <h3 class="text-white mb-4">Our Courses</h3>
+                <h3 class="text-white mb-4">Our Exams</h3>
                 <div class="d-flex flex-column justify-content-start">
                     <a class="text-white-50 mb-2" href="#">
-                        <i class="fa fa-angle-right mr-2"></i>Web Design
+                        <i class="fa fa-angle-right mr-2"></i>Medway Hackney Prep
                     </a>
                     <a class="text-white-50 mb-2" href="#">
-                        <i class="fa fa-angle-right mr-2"></i>Apps Design
+                        <i class="fa fa-angle-right mr-2"></i>Thanet Private Hire
                     </a>
                     <a class="text-white-50 mb-2" href="#">
-                        <i class="fa fa-angle-right mr-2"></i>Marketing
+                        <i class="fa fa-angle-right mr-2"></i>Highway Code Mock Test
                     </a>
                     <a class="text-white-50 mb-2" href="#">
-                        <i class="fa fa-angle-right mr-2"></i>Research
+                        <i class="fa fa-angle-right mr-2"></i>Safeguarding Module
                     </a>
                     <a class="text-white-50" href="#">
-                        <i class="fa fa-angle-right mr-2"></i>SEO
+                        <i class="fa fa-angle-right mr-2"></i>Local Route Planning
                     </a>
                 </div>
             </div>
@@ -74,16 +74,16 @@
                         <i class="fa fa-angle-right mr-2"></i>Privacy Policy
                     </a>
                     <a class="text-white-50 mb-2" href="#">
-                        <i class="fa fa-angle-right mr-2"></i>Terms & Condition
+                        <i class="fa fa-angle-right mr-2"></i>Terms & Conditions
                     </a>
                     <a class="text-white-50 mb-2" href="#">
-                        <i class="fa fa-angle-right mr-2"></i>Regular FAQs
+                        <i class="fa fa-angle-right mr-2"></i>Driver FAQs
                     </a>
                     <a class="text-white-50 mb-2" href="#">
-                        <i class="fa fa-angle-right mr-2"></i>Help & Support
+                        <i class="fa fa-angle-right mr-2"></i>Support Center
                     </a>
                     <a class="text-white-50" href="#">
-                        <i class="fa fa-angle-right mr-2"></i>Contact
+                        <i class="fa fa-angle-right mr-2"></i>Contact Us
                     </a>
                 </div>
             </div>
@@ -98,19 +98,15 @@
             <div class="col-md-6 text-center text-md-left mb-3 mb-md-0">
                 <p class="m-0">
                     &copy; {{ date('Y') }}
-                    <a class="text-white" href="{{ url('/') }}">Edukate</a>.
+                    <a class="text-white" href="{{ url('/') }}">Taxi Test Prep UK</a>.
                     All Rights Reserved.
                 </p>
             </div>
             <div class="col-md-6 text-center text-md-right">
                 <p class="m-0">
-                    Designed by
-                    <a class="text-white" href="https://htmlcodex.com">HTML Codex</a>
-                    Distributed by
-                    <a class="text-white" href="https://themewagon.com" target="_blank">ThemeWagon</a>
+                    Designed for Professional Drivers in Kent
                 </p>
             </div>
         </div>
     </div>
 </div>
-<!-- Footer End -->

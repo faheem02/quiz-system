@@ -2,19 +2,20 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Course extends Model
 {
-    use HasFactory;
-
-    // Add this line:
     protected $fillable = [
-        'title',
-        'instructor',
-        'image',
-        'rating',
-        'reviews'
+        'name',
+        'description', 
+        'price',
+        'total_questions',
+        'duration_minutes'
     ];
+
+    public function payments()
+    {
+        return $this->hasMany(Payment::class);
+    }
 }

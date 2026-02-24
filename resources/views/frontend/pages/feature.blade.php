@@ -4,7 +4,6 @@
 
 @section('content')
 
-<!-- Header Start -->
 <div class="jumbotron jumbotron-fluid page-header position-relative overlay-bottom" style="margin-bottom: 90px;">
     <div class="container text-center py-5">
         <h1 class="text-white display-1">Our Features</h1>
@@ -15,24 +14,38 @@
         </div>
     </div>
 </div>
-<!-- Header End -->
-
-<!-- Feature Start -->
 <div class="container-fluid py-5">
     <div class="container py-5">
         <div class="row">
             <div class="col-lg-7 mb-5 mb-lg-0">
                 <div class="section-title position-relative mb-4">
                     <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">Why Choose Us?</h6>
-                    <h1 class="display-4">Why You Should Start Learning with Us?</h1>
+                    <h1 class="display-4">Master Your Taxi Knowledge Test with Confidence</h1>
                 </div>
-                <p class="mb-4 pb-2">Aliquyam accusam clita nonumy ipsum sit sea clita ipsum clita, ipsum dolores amet voluptua duo dolores et sit ipsum rebum, sadipscing et erat eirmod diam kasd labore clita est. Diam sanctus gubergren sit rebum clita amet.</p>
+                <p class="mb-4 pb-2">Passing the Medway or Thanet council knowledge test is the most critical step in getting your taxi badge. We provide the most up-to-date mock exams and study materials to help you succeed on your first attempt, saving you time and re-test fees.</p>
 
                 @php
                     $features = [
-                        ['icon' => 'fa-graduation-cap', 'title' => 'Skilled Instructors', 'desc' => 'Labore rebum duo est Sit dolore eos sit tempor eos stet, vero vero clita magna kasd no nonumy et eos dolor magna ipsum.'],
-                        ['icon' => 'fa-certificate', 'title' => 'International Certificate', 'desc' => 'Labore rebum duo est Sit dolore eos sit tempor eos stet, vero vero clita magna kasd no nonumy et eos dolor magna ipsum.'],
-                        ['icon' => 'fa-book-reader', 'title' => 'Online Classes', 'desc' => 'Labore rebum duo est Sit dolore eos sit tempor eos stet, vero vero clita magna kasd no nonumy et eos dolor magna ipsum.'],
+                        [
+                            'icon' => 'fa-car', 
+                            'title' => 'Council Specific content', 
+                            'desc' => 'Our tests are tailored specifically for Medway and Thanet licensing policies, byelaws, and local landmark requirements.'
+                        ],
+                        [
+                            'icon' => 'fa-traffic-light', 
+                            'title' => 'Highway Code Mastery', 
+                            'desc' => 'Comprehensive practice questions covering the latest UK Highway Code standards essential for professional drivers.'
+                        ],
+                        [
+                            'icon' => 'fa-user-shield', 
+                            'title' => 'Safeguarding Training', 
+                            'desc' => 'Fully updated modules on safeguarding children and vulnerable adults, a mandatory requirement for all new UK taxi applicants.'
+                        ],
+                        [
+                            'icon' => 'fa-history', 
+                            'title' => 'Unlimited Mock Exams', 
+                            'desc' => 'Practice as many times as you need. Our system simulates the real exam environment to build your speed and accuracy.'
+                        ],
                     ];
                 @endphp
 
@@ -51,12 +64,10 @@
 
             <div class="col-lg-5" style="min-height: 500px;">
                 <div class="position-relative h-100">
-                    <img class="position-absolute w-100 h-100" src="{{ asset('img/feature.jpg') }}" style="object-fit: cover;">
+                    <img class="position-absolute w-100 h-100" src="{{ asset('img/feature.jpg') }}" style="object-fit: cover;" alt="Taxi Test Training">
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!-- Feature End -->
-
 @endsection
